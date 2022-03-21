@@ -2,7 +2,7 @@ import { BookCard } from "../BookCard/BookCard";
 import { SortAndFilterButtons } from "../SortAndFilterButtons/SortAndFilterButtons";
 import axios from "axios";
 import {useEffect,useState} from 'react'
-import { Main } from "../../style";
+import { Div, Div2, Main } from "../../style";
 export const Home = () => {
   // get all books when user lands on the page
   // populate them as mentioned below
@@ -32,14 +32,14 @@ export const Home = () => {
         }
       />
 
-      <Main className="mainContainer">
+      <Div2 className="mainContainer">
         {
           Data.map((ele)=>{
             // console.log('ele', ele);
             return <BookCard key={ele.id} id={ele.id} imageUrl={ele.imageUrl} title={ele.title} price={ele.price}/>
           })
         }
-      </Main>
+      </Div2>
     </div>
   );
 };
