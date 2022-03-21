@@ -7,10 +7,13 @@ export const BookDetailsPage = () => {
   // ID will come from route
   const data = useParams()
   const[Data,SetData] = useState([])
+  console.log('Data in page', Data);
   console.log('data', data);
+  let ID = data.id.split("")[1]
+  console.log('ID', ID);
 
   useEffect(()=>{
-    axios.get(`http://localhost:8080/products/${data.id}`).then((res)=>{
+    axios.get(`http://localhost:8080/products?id=${ID}`).then((res)=>{
       console.log('res', res.data);
       SetData(res.data)
       

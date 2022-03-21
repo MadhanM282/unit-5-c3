@@ -39,13 +39,6 @@ export const Home = () => {
             return <BookCard key={ele.id} id={ele.id} imageUrl={ele.imageUrl} title={ele.title} price={ele.price}/>
           })
         }
-        {/* 
-
-            Iterate over books that you get from network
-            populate a <BookCard /> component
-            pass down books id, imageUrl, title, price and anything else that you want to 
-            show in books Card.
-        */}
       </Main>
     </div>
   );

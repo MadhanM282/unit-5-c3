@@ -22,7 +22,7 @@ export const BookCard = ({ id, imageUrl, title, price }) => {
   return(
     <>
       <Div>
-        <Link to={`/bookdetailspage/:${id}`}>
+        <Link to={`/bookdetailspage/:${title}`}>
         
           <img src={imageUrl} alt="image" />
           
