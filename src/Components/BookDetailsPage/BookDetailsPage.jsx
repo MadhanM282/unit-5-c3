@@ -2,6 +2,7 @@ import { useParams} from "react-router";
 import {useEffect,useState} from "react"
 
 import axios from "axios";
+import { Div } from "../../style";
 export const BookDetailsPage = () => {
   // Get book details based on ID whenever user lands on the page
   // ID will come from route
@@ -21,18 +22,24 @@ export const BookDetailsPage = () => {
   },[])
   return (
     <>
-      <div className="bookContainer">
-        <h2 className="title">{"show book tile here"}</h2>
-        <img className="image" src={"show book image here"} alt="#" />
-        <div className="author">{"show book Author here"}</div>
-        <div className="description">{"show book Description here"}</div>
-        <div className="price">{"show book Price here"}</div>
-        <div className="section">{"show book section name here"}</div>
-        <div className="isbnNumber">{"show book ISBN number here"}</div>
-        <ul className="reviews">
-          {/* Reviews will be an array, iterate over them and create a new <li> for every review */}
-        </ul>
-      </div>
+      <Div className="bookContainer">
+        {
+          Data.map((ele)=>{
+            return <>
+              <h2 className="title">{ele.title}</h2>
+              <img className="image" src={ele.imageUrl} alt="#" />
+              <div className="author">{ele.author}</div>
+              <div className="description">{ele.description}</div>
+              <div className="price">{ele.price}</div>
+              <div className="section">{ele.section}</div>
+              <div className="isbnNumber">{ele.isbnNumber}</div>
+              <ul className="reviews">
+                {/* Reviews will be an array, iterate over them and create a new <li> for every review */}
+              </ul>
+            </>
+          })
+        }
+      </Div>
     </>
   );
 };

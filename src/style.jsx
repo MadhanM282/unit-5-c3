@@ -20,5 +20,7 @@ export const Div = styled.div`
  border: 1px solid;
  /* justify-content: center; */
  margin: auto;
+ width: 80%;
+ align-items: center;
 ` 
 
