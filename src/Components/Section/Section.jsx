@@ -18,6 +18,7 @@ export const Section = () => {
   //   Everything else is same as Home page
   const data = useParams()
   const[Data,SetData] = useState([])
+  // const [num,setNum] = useState(0)
   console.log('Data in page', Data);
   console.log('data', data);
   let ID = data.section.split(":")[1]
@@ -30,9 +31,9 @@ export const Section = () => {
     
   },[ID])
 
-  // useEffect(()=>{
+  useEffect(()=>{
 
-  // },[Data])
+  },[Data])
   const Get=()=>{
     axios.get(`http://localhost:8080/products?section=${ID}`).then((res)=>{
       console.log('res', res.data);
@@ -41,16 +42,22 @@ export const Section = () => {
   }
   
   const sorting = (e)=>{
-    if('e', e.target.className==="sortByTitleAsc"){
-      Data.sort((a, b) => b.title.localeCompare(a.title))
+    if( e.target.className==="sortByPriceAsc"){
+      
       console.log('Data', Data);
-      SetData(Data)
+      SetData([...Data.sort((a, b) => a.price-b.price)])
     }
-    if('e', e.target.className==="sortByTitleDesc"){
-      Data.sort((a, b) => a.title.localeCompare(b.title))
+    if( e.target.className==="sortByPriceDesc"){  
       console.log('Data', Data);
-      SetData(Data)
+      SetData([...Data.sort((a, b) => b.price-a.price)])
     }
+    if( e.target.className==="sortByTitleAsc"){
+      SetData([...Data.sort((a, b) =>a.title.localeCompare(b.title))])
+    }
+    if( e.target.className==="sortByTitleDesc"){
+      SetData([...Data.sort((a, b) =>b.title.localeCompare(a.title))])
+    }
+
 
   }
 

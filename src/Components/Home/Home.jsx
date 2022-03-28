@@ -20,28 +20,34 @@ export const Home = () => {
       
     })
   },[])
+  
   console.log('data', Data);
 
   const sorting = (e)=>{
-    if('e', e.target.className==="sortByTitleAsc"){
-      Data.sort((a, b) => b.title.localeCompare(a.title))
+    if( e.target.className==="sortByPriceAsc"){
+      
+      SetData([...Data.sort((a, b) => a.price-b.price)])
       console.log('Data', Data);
-      SetData(Data)
     }
-    if('e', e.target.className==="sortByTitleDesc"){
-      Data.sort((a, b) => a.title.localeCompare(b.title))
+    if( e.target.className==="sortByPriceDesc"){
+    
+      SetData([...Data.sort((a, b) => b.price-a.price)])
       console.log('Data', Data);
-      SetData(Data)
     }
+    if( e.target.className==="sortByTitleAsc"){
+      SetData([...Data.sort((a, b) =>a.title.localeCompare(b.title))])
+    }
+    if( e.target.className==="sortByTitleDesc"){
+      SetData([...Data.sort((a, b) =>b.title.localeCompare(a.title))])
+    }
+  
 
   }
 
   return (
     <div className="homeContainer">
       <h2 style={{ textAlign: "center" }}>Home</h2>
-      <SortAndFilterButtons
-        handleSort={sorting}
-      />
+      <SortAndFilterButtons handleSort={sorting}/>
 
       <Div2 className="mainContainer">
         {

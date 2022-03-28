@@ -35,7 +35,7 @@ export const BookDetailsPage = () => {
               <div className="isbnNumber">{ele.isbnNumber}</div>
               <ul className="reviews">
                 {/* Reviews will be an array, iterate over them and create a new <li> for every review */}
-                {ele.reviews}
+                <li>{ele.reviews}</li>
               </ul>
             </>
           })
