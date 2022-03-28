@@ -22,14 +22,25 @@ export const Home = () => {
   },[])
   console.log('data', Data);
 
+  const sorting = (e)=>{
+    if('e', e.target.className==="sortByTitleAsc"){
+      Data.sort((a, b) => b.title.localeCompare(a.title))
+      console.log('Data', Data);
+      SetData(Data)
+    }
+    if('e', e.target.className==="sortByTitleDesc"){
+      Data.sort((a, b) => a.title.localeCompare(b.title))
+      console.log('Data', Data);
+      SetData(Data)
+    }
+
+  }
 
   return (
     <div className="homeContainer">
       <h2 style={{ textAlign: "center" }}>Home</h2>
       <SortAndFilterButtons
-        handleSort={
-          "give handleSort function to this component, that sorts books"
-        }
+        handleSort={sorting}
       />
 
       <Div2 className="mainContainer">

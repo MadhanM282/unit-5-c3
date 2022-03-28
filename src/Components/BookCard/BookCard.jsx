@@ -26,8 +26,8 @@ export const BookCard = ({ id, imageUrl, title, price }) => {
         
           <img src={imageUrl} alt="image" />
           
-          <h2>{title}</h2>
-          <p>{price}</p>
+          <h2 className="title">{title}</h2>
+          <p className="price">{price}</p>
         
         </Link>
       </Div>

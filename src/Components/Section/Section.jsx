@@ -26,12 +26,33 @@ export const Section = () => {
   //   /* Same as Homepage */
   // `;
   useEffect(()=>{
+    Get()
+    
+  },[ID])
+
+  // useEffect(()=>{
+
+  // },[Data])
+  const Get=()=>{
     axios.get(`http://localhost:8080/products?section=${ID}`).then((res)=>{
       console.log('res', res.data);
       SetData(res.data)
-      
     })
-  },[])
+  }
+  
+  const sorting = (e)=>{
+    if('e', e.target.className==="sortByTitleAsc"){
+      Data.sort((a, b) => b.title.localeCompare(a.title))
+      console.log('Data', Data);
+      SetData(Data)
+    }
+    if('e', e.target.className==="sortByTitleDesc"){
+      Data.sort((a, b) => a.title.localeCompare(b.title))
+      console.log('Data', Data);
+      SetData(Data)
+    }
+
+  }
 
 
   return (
@@ -42,7 +63,7 @@ export const Section = () => {
           ID
         }
       </h2>
-      <SortAndFilterButtons handleSort={"give sorting function to component"} />
+      <SortAndFilterButtons handleSort={sorting} />
 
       <Div2 className="sectionContainer">
         {/* SHow same BookCard component here, just like homepage but with books only belong to this Section */}

@@ -2,30 +2,31 @@ import { Link } from "react-router-dom";
 import { Main } from "../../style";
 
 export const Navbar = () => {
+  
   return (
     <>
       <Main className="navbar">
        <Link to={"/"}>
-       <button>Home</button>
+       <button className="home">Home</button>
        </Link> 
        <Link to={`/section/:Mystery`}>
        
-        <button>Mystery</button>
+        <button className="mystery">Mystery</button>
        
        </Link> 
        <Link to={`/section/:Technology`}>
        
-        <button>Technology</button>
+        <button className="technology">Technology</button>
        
        </Link> 
        <Link to={`/section/:Mythology`}>
        
-        <button>Mythology</button>
+        <button className="Mythology">Mythology</button>
        
        </Link> 
        <Link to={`/section/:history`}>
        
-        <button>history</button>
+        <button className="history">History</button>
       
       
       </Link> 
